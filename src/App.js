@@ -24,7 +24,7 @@ class App extends React.Component {
     }
   }
 
-  handleChanges = event => {
+  changeHandler = event => {
     this.setState({
       task: {
         ...this.state.task,
@@ -46,7 +46,7 @@ class App extends React.Component {
       <div>
         <h2>Things To Do:</h2>
         <TodoList items ={this.state.ListItemsState}/>
-        <TodoForm taskAdd={this.addTask} buttonHandler={this.handleChanges}/>
+        <TodoForm taskAdd={this.addTask} buttonHandler={this.changeHandler}/>
       </div>
     );
   }
