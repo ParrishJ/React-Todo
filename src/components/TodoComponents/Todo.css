@@ -1,6 +1,15 @@
+h4 {
+    text-align: center;
+}
+
 .taskItem {
     font-size: 2rem;
     cursor: pointer;
+    text-align: center;
+    background-color: dodgerblue;
+    color: white;
+    border: .05rem solid black;
+    width: 50%;
 }
 
 .completed {
