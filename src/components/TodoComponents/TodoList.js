@@ -8,9 +8,8 @@ function TodoList(props){
         <ul>
             {props.items.map(item => {
                 return (
-                    <Todo item={item} key={item.id}/>
+                   <Todo item={item} key={Math.random()} click={props.taskClick}/>
                 )
-
             })}
         </ul>
     );

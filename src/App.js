@@ -20,7 +20,9 @@ class App extends React.Component {
     super();
     this.state = {
       ListItemsState: ListItems,
-      task: ''
+      task: '', 
+      id: '',
+      completed: false
     }
   }
 
@@ -29,6 +31,9 @@ class App extends React.Component {
       task: {
         ...this.state.task,
       task: event.target.value
+      },
+      id: {
+        ...this.state.id,
       }
     })
   }
@@ -41,11 +46,32 @@ class App extends React.Component {
     });
   };
 
+  taskClick = id => {
+    const updatedList = this.state.ListItemsState.map(clickItem => {
+      if(clickItem.id === id){
+        clickItem.completed = !clickItem.completed;
+        return clickItem;
+      } else {
+        return clickItem;
+      }
+    });
+    this.setState({ ListItemsState: updatedList})
+    console.log(this.state)
+  }
+
+  /* clear = () => {
+    const clearedTaskArray = this.state.ListItemsState.fileter((task => {
+      if (!task.completed){
+
+      }
+    }))
+  } */
+
   render() {
     return (
       <div>
         <h2>Things To Do:</h2>
-        <TodoList items ={this.state.ListItemsState}/>
+        <TodoList items ={this.state.ListItemsState} taskClick={this.taskClick}/>
         <TodoForm taskAdd={this.addTask} buttonHandler={this.changeHandler}/>
       </div>
     );
